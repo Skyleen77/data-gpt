@@ -10,6 +10,14 @@
   - [Install](#install)
   - [Import](#import)
   - [Use](#use)
+- [Options](#options)
+  - [embedding](#embedding)
+    - [openai _(required)_ - OpenAIApi](#openai-_required_-openaiapi)
+    - [source _(required)_ - string](#source-_required_-string)
+    - [debug _(optional)_ - boolean](#debug-_optional_-boolean)
+    - [storagePrefix _(optional)_ - string](#storageprefix-_optional_-string)
+    - [model _(optional)_ - string](#model-_optional_-string)
+  - [completion](#completion)
 - [Issues](#issues)
 - [LICENSE](#license)
 
@@ -66,6 +74,74 @@ const prompt = 'your-prompt';
 
 const complete = completion({ openai, prompt, embed });
 ```
+
+## Options
+
+### embedding
+
+#### openai _(required)_ - OpenAIApi
+
+Your OpenAI API instance.
+
+#### source _(required)_ - string
+
+The text to embed.
+
+#### debug _(optional)_ - boolean
+
+Set to true to enable the debug mode.
+**Default: false**
+
+#### storagePrefix _(optional)_ - string
+
+The prefix to use for the storage key.
+**Default: 'embeds'**
+
+#### model _(optional)_ - string
+
+The OpenAI model to use for embedding.
+**Default: 'text-embedding-ada-002'**
+
+### completion
+
+#### openai _(required)_ - OpenAIApi
+
+Your OpenAI API instance.
+
+#### prompt _(required)_ - string
+
+The prompt to complete.
+
+#### embed _(required)_ - string
+
+The embedded text (the result of the embedding function).
+
+#### maxTokens _(optional)_ - number
+
+The maximum number of tokens to generate.
+**Default: 100**
+
+#### debug _(optional)_ - boolean
+
+Set to true to enable the debug mode.
+**Default: false**
+
+#### storagePrefix _(optional)_ - string
+
+The prefix to use for the storage key.
+**Default: 'embeds'**
+_/!\ Use the same storagePrefix as used in the embedding function_
+
+#### embeddingModel _(optional)_ - string
+
+The OpenAI model to use for embedding.
+**Default: 'text-embedding-ada-002'**
+_/!\ Use the same model as used in the embedding function_
+
+#### completionModel _(optional)_ - string
+
+The OpenAI model to use for chat completion.
+**Default: 'gpt-3.5-turbo'**
 
 ## Issues
 

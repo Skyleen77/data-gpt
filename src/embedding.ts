@@ -21,7 +21,7 @@ export const embedding = async ({
   openai,
   source,
   debug = false,
-  storagePrefix = 'embeds:',
+  storagePrefix = 'embeds',
   model = 'text-embedding-ada-002',
 }: EmbeddingOptions): Promise<EmbeddingResponse> => {
   if (debug) {
@@ -54,7 +54,7 @@ export const embedding = async ({
 
     if (response.data.data.length >= totalParagraphs) {
       for (let i = 0; i < totalParagraphs; i++) {
-        embeddingStore[`${storagePrefix}${paragraphs[i]}`] = JSON.stringify({
+        embeddingStore[`${storagePrefix}:${paragraphs[i]}`] = JSON.stringify({
           embedding: response.data.data[i].embedding,
           created: startTime,
         });

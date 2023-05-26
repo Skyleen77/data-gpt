@@ -2,7 +2,7 @@
 
 const embeddingStore$1 = {};
 const MIN_WORDS_IN_PARAGRAPH = 5;
-const embedding = async ({ openai, source, debug = false, storagePrefix = 'embeds:', model = 'text-embedding-ada-002', }) => {
+const embedding = async ({ openai, source, debug = false, storagePrefix = 'embeds', model = 'text-embedding-ada-002', }) => {
     if (debug) {
         console.log('Generating Embedding');
     }
@@ -24,7 +24,7 @@ const embedding = async ({ openai, source, debug = false, storagePrefix = 'embed
         const completionTime = Date.now();
         if (response.data.data.length >= totalParagraphs) {
             for (let i = 0; i < totalParagraphs; i++) {
-                embeddingStore$1[`${storagePrefix}${paragraphs[i]}`] = JSON.stringify({
+                embeddingStore$1[`${storagePrefix}:${paragraphs[i]}`] = JSON.stringify({
                     embedding: response.data.data[i].embedding,
                     created: startTime,
                 });
@@ -60,15 +60,15 @@ const embedding = async ({ openai, source, debug = false, storagePrefix = 'embed
 
 let embeddingStore = {};
 let embeddedQuestion;
-const createPrompt = (question, paragraphs) => `Answer the following question, also use your own knowledge when necessary :
+const createPrompt = (question, paragraphs) => `Answer the following question, also use your own knowledge when necessary:
 
-Context :
+Context:
 ${paragraphs.join('\n\n')}
 
-Question :
+Question:
 ${question}?
 
-Answer :`;
+Answer:`;
 const extractParagraphFromKey = (key, storagePrefix) => key.substring(storagePrefix.length);
 const calculateDotProduct = (embedding1, embedding2) => embedding1
     .slice(0, embedding2.length)
@@ -83,7 +83,8 @@ const findClosestParagraphs = (questionEmbedding, count, storagePrefix) => {
         .slice(0, count)
         .map((item) => item.paragraph);
 };
-const completion = async ({ openai, prompt, embed, maxTokens = 100, debug = false, storagePrefix = 'embeds:', embeddingModel = 'text-embedding-ada-002', completionModel = 'gpt-3.5-turbo', }) => {
+const completion = async ({ openai, prompt, embed, maxTokens = 100, debug = false, storagePrefix = 'embeds', embeddingModel = 'text-embedding-ada-002', completionModel = 'gpt-3.5-turbo', }) => {
+    const completeStoragePrefix = `${storagePrefix}:`;
     if (debug) {
         console.log(`Start completion with prompt : ${prompt}`);
     }
@@ -103,7 +104,7 @@ const completion = async ({ openai, prompt, embed, maxTokens = 100, debug = fals
                 error: `Question not embedded properly`,
             };
         }
-        const closestParagraphs = findClosestParagraphs(embeddedQuestion, 5, storagePrefix);
+        const closestParagraphs = findClosestParagraphs(embeddedQuestion, 5, completeStoragePrefix);
         const completionData = await openai.createChatCompletion({
             model: completionModel,
             messages: [

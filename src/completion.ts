@@ -21,15 +21,15 @@ let embeddingStore: Record<string, any> = {};
 let embeddedQuestion: any;
 
 const createPrompt = (question: string, paragraphs: string[]): string =>
-  `Answer the following question, also use your own knowledge when necessary :
+  `Answer the following question, also use your own knowledge when necessary:
 
-Context :
+Context:
 ${paragraphs.join('\n\n')}
 
-Question :
+Question:
 ${question}?
 
-Answer :`;
+Answer:`;
 
 const extractParagraphFromKey = (key: string, storagePrefix: string): string =>
   key.substring(storagePrefix.length);
@@ -70,10 +70,12 @@ export const completion = async ({
   embed,
   maxTokens = 100,
   debug = false,
-  storagePrefix = 'embeds:',
+  storagePrefix = 'embeds',
   embeddingModel = 'text-embedding-ada-002',
   completionModel = 'gpt-3.5-turbo',
 }: CompletionOptions): Promise<CompletionResponse> => {
+  const completeStoragePrefix = `${storagePrefix}:`;
+
   if (debug) {
     console.log(`Start completion with prompt : ${prompt}`);
   }
@@ -100,7 +102,7 @@ export const completion = async ({
     const closestParagraphs = findClosestParagraphs(
       embeddedQuestion,
       5,
-      storagePrefix,
+      completeStoragePrefix,
     );
 
     const completionData = await openai.createChatCompletion({
