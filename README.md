@@ -11,8 +11,8 @@
   - [Import](#import)
   - [Use](#use)
 - [Options](#options)
-  - [embedding](#embedding)
-  - [completion](#completion)
+  - [embedding()](#embedding)
+  - [completion()](#completion)
 - [Issues](#issues)
 - [LICENSE](#license)
 
@@ -72,7 +72,7 @@ const complete = completion({ openai, prompt, embed });
 
 ## Options
 
-### embedding
+### embedding()
 
 #### openai _(required)_ - OpenAIApi
 
@@ -97,7 +97,7 @@ The prefix to use for the storage key.
 The OpenAI model to use for embedding.
 **Default: 'text-embedding-ada-002'**
 
-### completion
+### completion()
 
 #### openai _(required)_ - OpenAIApi
 
