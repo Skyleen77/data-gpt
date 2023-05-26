@@ -125,13 +125,13 @@ Set to true to enable the debug mode.
 
 The prefix to use for the storage key.
 **Default: 'embeds'**
-_/!\ Use the same storagePrefix as used in the embedding function_
+_(/!\ Use the same storagePrefix as used in the embedding function)_
 
 #### embeddingModel _(optional)_ - string
 
 The OpenAI model to use for embedding.
 **Default: 'text-embedding-ada-002'**
-_/!\ Use the same model as used in the embedding function_
+_(/!\ Use the same model as used in the embedding function)_
 
 #### completionModel _(optional)_ - string
 
