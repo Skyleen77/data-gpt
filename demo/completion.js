@@ -2,12 +2,15 @@ const { completion } = require('../dist');
 const { openai } = require('../lib');
 const fs = require('fs');
 
-const embeddedFile = fs.readFileSync('./demo/embeddedFile.txt', {
+const embed = fs.readFileSync('./demo/embeddedFile.txt', {
   encoding: 'utf-8',
   flag: 'r',
 });
 
-completion(openai, 'How much is OpenAI valued at?', embeddedFile, {
+completion({
+  openai,
+  prompt: 'How much is OpenAI valued at?',
+  embed,
   debug: true,
 }).then((complete) => {
   if (complete.status === 200) {

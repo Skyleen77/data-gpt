@@ -2,7 +2,7 @@
 
 const embeddingStore$1 = {};
 const MIN_WORDS_IN_PARAGRAPH = 5;
-const embedding = async (openai, source, { debug = false, storagePrefix = 'embeds:', model = 'text-embedding-ada-002', } = {}) => {
+const embedding = async ({ openai, source, debug = false, storagePrefix = 'embeds:', model = 'text-embedding-ada-002', }) => {
     if (debug) {
         console.log('Generating Embedding');
     }
@@ -83,12 +83,12 @@ const findClosestParagraphs = (questionEmbedding, count, storagePrefix) => {
         .slice(0, count)
         .map((item) => item.paragraph);
 };
-const completion = async (openai, prompt, embeddedFile, { maxTokens = 100, debug = false, storagePrefix = 'embeds:', embeddingModel = 'text-embedding-ada-002', completionModel = 'gpt-3.5-turbo', } = {}) => {
+const completion = async ({ openai, prompt, embed, maxTokens = 100, debug = false, storagePrefix = 'embeds:', embeddingModel = 'text-embedding-ada-002', completionModel = 'gpt-3.5-turbo', }) => {
     if (debug) {
         console.log(`Start completion with prompt : ${prompt}`);
     }
     const startTime = Date.now();
-    embeddingStore = JSON.parse(embeddedFile);
+    embeddingStore = JSON.parse(embed);
     try {
         const embeddedQuestionResponse = await openai.createEmbedding({
             input: prompt,

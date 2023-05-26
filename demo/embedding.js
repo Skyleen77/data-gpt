@@ -7,7 +7,9 @@ const rawText = fs.readFileSync('./demo/sourceFile.txt', {
   flag: 'r',
 });
 
-embedding(openai, rawText, {
+embedding({
+  openai,
+  source: rawText,
   debug: true,
 }).then((embed) => {
   if (embed.status === 200) {

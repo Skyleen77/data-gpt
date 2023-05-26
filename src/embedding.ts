@@ -6,18 +6,24 @@ interface EmbeddingResponse {
   data?: Record<string, any>;
 }
 
+interface EmbeddingOptions {
+  openai: OpenAIApi;
+  source: string;
+  debug?: boolean;
+  storagePrefix?: string;
+  model?: string;
+}
+
 const embeddingStore: Record<string, any> = {};
 const MIN_WORDS_IN_PARAGRAPH = 5;
 
-export const embedding = async (
-  openai: OpenAIApi,
-  source: string,
-  {
-    debug = false,
-    storagePrefix = 'embeds:',
-    model = 'text-embedding-ada-002',
-  } = {},
-): Promise<EmbeddingResponse> => {
+export const embedding = async ({
+  openai,
+  source,
+  debug = false,
+  storagePrefix = 'embeds:',
+  model = 'text-embedding-ada-002',
+}: EmbeddingOptions): Promise<EmbeddingResponse> => {
   if (debug) {
     console.log('Generating Embedding');
   }

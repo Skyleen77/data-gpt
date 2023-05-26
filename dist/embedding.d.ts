@@ -4,9 +4,12 @@ interface EmbeddingResponse {
     error?: string;
     data?: Record<string, any>;
 }
-export declare const embedding: (openai: OpenAIApi, source: string, { debug, storagePrefix, model, }?: {
-    debug?: boolean | undefined;
-    storagePrefix?: string | undefined;
-    model?: string | undefined;
-}) => Promise<EmbeddingResponse>;
+interface EmbeddingOptions {
+    openai: OpenAIApi;
+    source: string;
+    debug?: boolean;
+    storagePrefix?: string;
+    model?: string;
+}
+export declare const embedding: ({ openai, source, debug, storagePrefix, model, }: EmbeddingOptions) => Promise<EmbeddingResponse>;
 export {};

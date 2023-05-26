@@ -6,6 +6,17 @@ interface CompletionResponse {
   data?: string;
 }
 
+interface CompletionOptions {
+  openai: OpenAIApi;
+  prompt: string;
+  embed: string;
+  maxTokens?: number;
+  debug?: boolean;
+  storagePrefix?: string;
+  embeddingModel?: string;
+  completionModel?: string;
+}
+
 let embeddingStore: Record<string, any> = {};
 let embeddedQuestion: any;
 
@@ -53,25 +64,23 @@ const findClosestParagraphs = (
     .map((item) => item.paragraph);
 };
 
-export const completion = async (
-  openai: OpenAIApi,
-  prompt: string,
-  embeddedFile: string,
-  {
-    maxTokens = 100,
-    debug = false,
-    storagePrefix = 'embeds:',
-    embeddingModel = 'text-embedding-ada-002',
-    completionModel = 'gpt-3.5-turbo',
-  } = {},
-): Promise<CompletionResponse> => {
+export const completion = async ({
+  openai,
+  prompt,
+  embed,
+  maxTokens = 100,
+  debug = false,
+  storagePrefix = 'embeds:',
+  embeddingModel = 'text-embedding-ada-002',
+  completionModel = 'gpt-3.5-turbo',
+}: CompletionOptions): Promise<CompletionResponse> => {
   if (debug) {
     console.log(`Start completion with prompt : ${prompt}`);
   }
 
   const startTime: number = Date.now();
 
-  embeddingStore = JSON.parse(embeddedFile);
+  embeddingStore = JSON.parse(embed);
 
   try {
     const embeddedQuestionResponse = await openai.createEmbedding({

@@ -4,11 +4,15 @@ interface CompletionResponse {
     error?: string;
     data?: string;
 }
-export declare const completion: (openai: OpenAIApi, prompt: string, embeddedFile: string, { maxTokens, debug, storagePrefix, embeddingModel, completionModel, }?: {
-    maxTokens?: number | undefined;
-    debug?: boolean | undefined;
-    storagePrefix?: string | undefined;
-    embeddingModel?: string | undefined;
-    completionModel?: string | undefined;
-}) => Promise<CompletionResponse>;
+interface CompletionOptions {
+    openai: OpenAIApi;
+    prompt: string;
+    embed: string;
+    maxTokens?: number;
+    debug?: boolean;
+    storagePrefix?: string;
+    embeddingModel?: string;
+    completionModel?: string;
+}
+export declare const completion: ({ openai, prompt, embed, maxTokens, debug, storagePrefix, embeddingModel, completionModel, }: CompletionOptions) => Promise<CompletionResponse>;
 export {};
