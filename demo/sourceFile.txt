@@ -1,0 +1,23 @@
+OpenAI (“AI” for artificial intelligence, or artificial intelligence) is a company specializing in artificial reasoning, “capped profit”, headquartered in San Francisco. Before March 2019, it was recognized as a non-profit association. The objective of this society is to promote and develop artificial reasoning with a human face that will benefit all of humanity. With an initial fund of $100 million, OpenAI is looking to partner with a few startups using artificial reasoning to have a transformative effect, for example in healthcare, climate change, and education and “ where AI tools can empower people by helping them be more productive.”
+
+In 2023, the OpenAI company is valued at US$29 billion.
+
+OpenAI was founded as a non-profit association on December 11, 2015. The two presidents are Elon Musk and Sam Altman, the members, Jessica Livingston (en), YC Research (arm of Y Combinator intended for innovation) , Peter Thiel (capital investor), Amazon Web Services, Reid Hoffman and Infosys, an Indian company. Musk, Thiel and Hoffman got to know each other during their PayPal days.
+
+Elon Musk left the company in 2018 following a leadership dispute.
+
+In March 2019, the association became a capped profit venture to attract capital. The purpose of this new status is to allow investors to receive a portion of the company's profits up to a certain rate of return.
+
+Following the status change, OpenAI clarifies that returns are capped at one hundred times the value of the investments. To the extent that the profits of the company allow it, a shareholder who has invested one dollar can thus receive a maximum of one hundred dollars.
+
+The founders committed to an overall budget of one billion dollars, however only a small part would be used in the first years.
+
+In 2019, Microsoft also announced its intention to invest a billion dollars in OpenAI, in exchange for a privileged partnership with OpenAI, when the company commercializes its artificial intelligence technologies.
+
+At the beginning of 2023, according to the Semafor media and the Bloomberg News agency, an additional investment from Microsoft of ten billion dollars would be under negotiation. The objective is to accelerate the integration of Open AI solutions into Microsoft software, such as the Microsoft Office office suite. According to Semafor, this new financing foresees that Microsoft obtains 75% of the profits of OpenAI until the recovery of its initial investment.
+
+Some scientists like Stephen Hawking and Stuart Russell have raised the risk that AI in the future will be capable of self-improvement, which they believe could cause an "intelligence explosion" that could lead to the extinction of the humanity. Co-founder Elon Musk has described AI as the "worst existential threat". OpenAI was created with the aim of reducing these risks. The founders made it a nonprofit, to focus its research on ways to make AI beneficial to humanity.
+
+Elon Musk and Sam Altman claimed to be partly motivated by the safety of artificial intelligences and the risks of planetary catastrophe linked to artificial general intelligence. According to OpenAI, "it's hard to imagine how much human-level AI could improve society, and it's just as hard to imagine how much it could harm society if it were poorly designed or used. ". Postponing safety research could be dangerous: “it is difficult to predict when human-level AI might become feasible”. OpenAI asserts that AI "should be an extension of human will and, in the spirit of freedom, distributed as widely and as equitably as possible." Sam Altman expects in 2015 that this project will one day exceed human intelligence.
+
+Former Infosys CEO Vishal Sikka backed OpenAI in 2015, which he considers beneficial to humanity [why?]. Cade Metz of Wired magazine suggests that corporations like Amazon could be motivated by using open source software and data to catch up with corporations like Google and Facebook, which have huge amounts of proprietary data.
